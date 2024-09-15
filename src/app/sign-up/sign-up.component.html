@@ -1,0 +1,100 @@
+<div class="login-container">
+  <!-- Mountain Image -->
+  <!-- <img src="https://via.placeholder.com/100?text=Mountain" alt="Mountain Image" class="login-image"> -->
+
+  <!-- Login Form -->
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-floating mb-3">
+      <input
+        type="user_name"
+        class="form-control"
+        id="floatingInput"
+        placeholder="Enter user_name address"
+        formControlName="user_name"
+        [ngClass]="{
+          'is-invalid':
+            formCtrl['user_name'].invalid &&
+            (formCtrl['user_name'].touched ||
+              formCtrl['user_name'].dirty ||
+              !isFieldValid())
+        }"
+      />
+      <label for="floatingInput">Email address</label>
+      @if(formCtrl['user_name'].invalid && (formCtrl['user_name'].touched ||
+      formCtrl['user_name'].dirty || !isFieldValid())){
+      <div class="text-danger">
+        @if(formCtrl['user_name'].errors?.['required']){
+        <div>Email required</div>
+        } @if(formCtrl['user_name'].errors?.['user_name']){
+        <div>Email address must be valid</div>
+        }
+      </div>
+      }
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        type="password"
+        class="form-control"
+        id="floatingPassword"
+        placeholder="Enter password"
+        formControlName="user_password"
+        [ngClass]="{
+          'is-invalid':
+            formCtrl['user_password'].invalid &&
+            (formCtrl['user_password'].dirty ||
+              formCtrl['user_password'].touched ||
+              !isFieldValid())
+        }"
+      />
+      <label for="floatingPassword">Password</label>
+      @if((formCtrl['user_password'].invalid && (formCtrl['user_password'].dirty ||
+      formCtrl['user_password'].touched || !isFieldValid))){
+      <div class="text-danger">
+        @if(formCtrl['user_password'].errors?.['required']){
+        <div>Password required</div>
+        } @if(formCtrl['user_password'].errors?.['pattern']){
+        <div>
+          Password must contain atleast a number, a special character, an uppercase,
+          and an lowercase character
+        </div>
+        } @if(formCtrl['user_password'].errors?.['minLength']){
+        <div>Password must contain atleast 8 characters</div>
+        }
+      </div>
+      }
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        type="password"
+        class="form-control"
+        id="floatingPassword"
+        placeholder="Enter password"
+        formControlName="confirm_password"
+        [ngClass]="{
+          'is-invalid':
+            formCtrl['confirm_password'].invalid &&
+            (formCtrl['confirm_password'].dirty ||
+              formCtrl['confirm_password'].touched ||
+              !isFieldValid())
+        }"
+      />
+      <label for="floatingPassword">Confirm Password</label>
+      @if((formCtrl['confirm_password'].invalid &&
+      (formCtrl['confirm_password'].dirty ||
+      formCtrl['confirm_password'].touched || !isFieldValid))){
+      <div class="text-danger">
+        @if(formCtrl['confirm_password'].errors?.['required']){
+        <div>Confirm password required</div>
+        } @if(formCtrl['confirm_password'].errors?.['confirm_password']){
+        <div>Confirm password and password must match</div>
+        }
+      </div>
+      }
+    </div>
+    <span
+      >Already have an account?
+      <a href="javascript:void(0)" routerLink="/login">Login</a></span
+    >
+    <button class="btn btn-primary w-100" type="submit">Sign up</button>
+  </form>
+</div>

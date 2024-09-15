@@ -1,0 +1,73 @@
+<app-header></app-header>
+<div class="container mt-5 mb-5">
+    <div class="form-container">
+        <h2 class="form-heading">Group Details</h2>
+        <form [formGroup]="groupForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="groupName">Group Name</label>
+                <input type="text" class="form-control" id="groupName" placeholder="Enter group name" [readonly]="stateData['action'] === 'view'"
+                formControlName="groupName" [ngClass]="{'is-invalid':formCtrl['groupName'].invalid && (formCtrl['groupName'].dirty ||
+                    formCtrl['groupName'].touched || !isFieldValid())}" >
+
+                <div class="text-danger" *ngIf="formCtrl['groupName'].invalid && (formCtrl['groupName'].touched || formCtrl['groupName'].dirty || !isFieldValid())">
+                    <div *ngIf="formCtrl['groupName'].hasError('required')">Group name required</div>
+                    <div *ngIf="formCtrl['groupName'].hasError('minlength')">Field must contain atleast 2 characters</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="totalCost">Total Cost</label>
+                <input type="number" class="form-control" id="totalCost" placeholder="Enter total cost"
+                formControlName="totalCost" [readonly]="stateData['action'] === 'view'" [ngClass]="{'is-invalid':formCtrl['totalCost'].invalid && (formCtrl['totalCost'].dirty ||
+                formCtrl['totalCost'].touched || !isFieldValid())}">
+
+                <div class="text-danger" *ngIf="formCtrl['totalCost'].invalid && (formCtrl['totalCost'].touched || formCtrl['totalCost'].dirty || !isFieldValid())">
+                    <div *ngIf="formCtrl['totalCost'].hasError('required')">Total cost required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="groupDescription">Group Description</label>
+                <textarea class="form-control" id="groupDescription" rows="3" placeholder="Enter group description"
+                formControlName="groupDescription" [readonly]="stateData['action'] === 'view'" [ngClass]="{'is-invalid':formCtrl['groupDescription'].invalid && (formCtrl['groupDescription'].dirty ||
+                formCtrl['groupDescription'].touched || !isFieldValid())}"></textarea>
+
+                <div class="text-danger" *ngIf="formCtrl['groupDescription'].invalid && (formCtrl['groupDescription'].touched || formCtrl['groupDescription'].dirty || !isFieldValid())">
+                    <div *ngIf="formCtrl['groupDescription'].hasError('required')">Description required</div>
+                    <div *ngIf="formCtrl['groupDescription'].hasError('maxlength')">Maximum character limit exceeded</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="costManagement">Cost Management</label>
+                <select class="form-select" id="costManagement" formControlName="costManagement" [ngClass]="{'is-invalid':formCtrl['costManagement'].invalid && (formCtrl['costManagement'].dirty ||
+                formCtrl['costManagement'].touched || !isFieldValid())}">
+                    <option selected disabled>Choose an option</option>
+                    <option value="Equally Splitted">Equally Splitted </option>
+                    <option value="Assigned Leader">Assigned Leader</option>
+                </select>
+
+                <div class="text-danger" *ngIf="formCtrl['costManagement'].invalid && (formCtrl['costManagement'].touched || formCtrl['costManagement'].dirty || !isFieldValid())">
+                    <div *ngIf="formCtrl['costManagement'].hasError('required')">Field required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="costManagement">Charge update</label>
+                <select class="form-select" id="costManagement" formControlName="settledCost" [ngClass]="{'is-invalid':formCtrl['settledCost'].invalid && (formCtrl['settledCost'].dirty ||
+                formCtrl['settledCost'].touched || !isFieldValid())}">
+                    <option selected disabled>Choose an option</option>
+                    <option value="Settled">Settled </option>
+                    <option value="Unsettled">Unsettled</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-submit" *ngIf="stateData['action'] !== 'view'">Submit</button>
+        </form>
+    </div>
+
+
+    <div class="invite-container mt-5">
+        <h3>Send Invitation</h3>
+        <form class="invite-form">
+            <input type="email" class="form-control" id="inviteEmail" placeholder="Enter email address">
+            <button type="button" class="btn btn-invite">Send Invitation</button>
+        </form>
+    </div>
+    
+</div>

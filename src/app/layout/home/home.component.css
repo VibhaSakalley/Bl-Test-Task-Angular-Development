@@ -1,0 +1,51 @@
+avbar-brand {
+    font-size: 2rem;
+    color: #88c726;
+}
+.navbar-brand span {
+    color: #333;
+}
+.package-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px;
+}
+.package-card img {
+    width: 100%;
+    height: auto;
+}
+.package-details {
+    padding: 1rem;
+}
+.package-details i {
+    color: #88c726;
+}
+.package-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+.package-description {
+    font-size: 0.9rem;
+    color: #666;
+}
+.btn-package {
+    background-color: #88c726;
+    color: #fff;
+    border: none;
+    margin: 10px;
+}
+.btn-package:hover {
+    background-color: #76b021;
+}
+
+.add-package-btn {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    margin-bottom: 20px;
+}
+.add-package-btn:hover {
+    background-color: #218838;
+}

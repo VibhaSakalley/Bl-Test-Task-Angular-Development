@@ -1,0 +1,37 @@
+.login-container {
+    max-width: 400px;
+    padding: 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+.login-image {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.form-floating label {
+    color: #6c757d;
+}
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.form-floating {
+    position: relative;
+}
+.form-floating .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}

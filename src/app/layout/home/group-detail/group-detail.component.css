@@ -1,0 +1,61 @@
+.form-container {
+    background-color: #f8f9fa;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+.form-control {
+    margin-bottom: 10px;
+}
+.form-control:focus {
+    border-color: #88c726;
+    box-shadow: none;
+}
+.form-heading {
+    margin-bottom: 20px;
+}
+.user-list {
+    margin-top: 40px;
+}
+.user-list h3 {
+    margin-bottom: 20px;
+}
+.user-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+}
+.user-item:last-child {
+    border-bottom: none;
+}
+.btn-submit {
+    background-color: #88c726;
+    color: #fff;
+    border: none;
+}
+.btn-submit:hover {
+    background-color: #76b021;
+}
+
+.invite-container {
+    margin-top: 40px;
+}
+.invite-container h3 {
+    margin-bottom: 20px;
+}
+.invite-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.btn-submit, .btn-invite {
+    background-color: #88c726;
+    color: #fff;
+    border: none;
+}
+.btn-submit:hover, .btn-invite:hover {
+    background-color: #76b021;
+}

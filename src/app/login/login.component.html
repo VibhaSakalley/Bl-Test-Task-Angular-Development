@@ -1,0 +1,56 @@
+<div class="login-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-floating mb-3">
+            <input 
+                type="email" 
+                class="form-control" 
+                id="floatingInput" 
+                placeholder="Enter email address"
+                formControlName="email" 
+                [ngClass]="{
+                    'is-invalid':
+                    formCtrl['email'].invalid &&
+                    (formCtrl['email'].touched ||
+                    formCtrl['email'].dirty ||
+                    !isFieldValid())
+                }" 
+            />
+            <label for="floatingInput">Email address</label>
+            <div class="text-danger" *ngIf="formCtrl['email'].invalid && (formCtrl['email'].touched || formCtrl['email'].dirty || !isFieldValid())">
+                <div *ngIf="formCtrl['email'].hasError('required')">Email required</div>
+                <div *ngIf="formCtrl['email'].hasError('email')">Email address must be valid</div>
+            </div>
+        </div>
+        
+        <div class="form-floating mb-3 position-relative">
+            <input 
+                [type]="passwordFieldType() ? 'password' : 'text'" 
+                class="form-control" 
+                id="floatingPassword" 
+                placeholder="Enter password"
+                formControlName="password" 
+                [ngClass]="{
+                    'is-invalid':
+                    formCtrl['password'].invalid &&
+                    (formCtrl['password'].dirty ||
+                    formCtrl['password'].touched ||
+                    !isFieldValid())
+                }" 
+            />
+            <label for="floatingPassword">Password</label>
+            <i 
+                class="bi" 
+                [ngClass]="passwordFieldType() ? 'bi-eye' : 'bi-eye-slash'"
+                (keypress)="passwordFieldType.set(!passwordFieldType())" 
+                id="togglePassword" 
+                style="cursor: pointer; position: absolute; top: 50%; right: 10px; transform: translateY(-50%);"
+            ></i>
+            <div class="required-txt-error text-danger" *ngIf="formCtrl['password'].invalid && (formCtrl['password'].dirty || formCtrl['password'].touched || !isFieldValid())">
+                <div *ngIf="formCtrl['password'].hasError('required')">Password required</div>
+            </div>
+        </div>
+        
+        <span>Don't have an account? <a href="javascript:void(0)" routerLink="/register">Create account</a></span>
+        <button class="btn btn-primary w-100" type="submit">Login</button>
+    </form>
+</div>
